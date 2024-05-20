@@ -1,17 +1,52 @@
+import { AnimatePresence } from "framer-motion";
+import { Route, Routes } from "react-router-dom";
+import Navbar from "./component/Navbar/Navbar";
+import Footer from "./component/Footer/Footer";
+import ScrollToTop from "./utils/ScrollToTop";
+import { Suspense, lazy, useEffect, useState } from "react";
+import Spinner from "./utils/Spinner";
+import BackToTop from "./component/BackToTop/BackToTop";
+
+const Layout = lazy(() => import("./component/Layouts/Layout"));
+const Landing = lazy(() => import("./component/Landing/Landing"));
+const Projects = lazy(() => import("./component/Projects/Project"));
+const AboutMe = lazy(() => import("./component/About/AboutMe"));
+const Skills = lazy(() => import("./component/Skills/Skill"));
+const Contact = lazy(() => import("./component/Contacts/Contact"));
+
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false); 
+    }, 1000);
+  }, []);
   return (
     <>
-      <h1>Navbar</h1>
-      <input
-        data-hs-theme-switch=""
-        className="relative w-[3.25rem] h-7 bg-gray-500 checked:bg-none checked:bg-blue-600 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 ring-1 ring-transparent focus:border-gray-700 focus:ring-gray-700 focus:outline-none appearance-none
-
-before:inline-block before:size-6 before:bg-white checked:before:bg-blue-200 before:translate-x-0 checked:before:translate-x-full before:shadow before:rounded-full before:transform before:ring-0 before:transition before:ease-in-out before:duration-200
-
-after:absolute after:end-1.5 after:top-[calc(50%-0.40625rem)] after:w-[.8125rem] after:h-[.8125rem] after:bg-no-repeat after:bg-[right_center] after:bg-[length:.8125em_.8125em] after:transform after:transition-all after:ease-in-out after:duration-200 after:opacity-70 checked:after:start-1.5 checked:after:end-auto"
-        type="checkbox"
-        id="darkSwitch"
-      ></input>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <AnimatePresence>
+          <div className="bg-background-light dark:bg-background-dark transition duration-300 ">
+            <ScrollToTop />
+            <Navbar />
+            <Suspense fallback={""}>
+              <Routes>
+                <Route />
+                <Route path="/" element={<Layout />} />
+                <Route path="/home" element={<Landing />} />
+                <Route path="/about" element={<AboutMe />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+            </Suspense>
+            <Footer />
+            <BackToTop/>
+          </div>
+        </AnimatePresence>
+      )}
     </>
   );
 };
