@@ -34,7 +34,7 @@ const App = () => {
             <Suspense fallback={""}>
               <Routes>
                 <Route />
-                <Route path="/" element={<Layout />} />
+                <Route path="/portfolio" element={<Layout />} />
                 <Route path="/home" element={<Landing />} />
                 <Route path="/about" element={<AboutMe />} />
                 <Route path="/projects" element={<Projects />} />

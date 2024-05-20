@@ -39,7 +39,7 @@ const Navbar = () => {
           aria-label="Global"
         >
           <div className="flex items-center justify-between">
-            <Link to="/">
+            <Link to="/portfolio">
               <img
                 src={logo}
                 alt="Logo"
