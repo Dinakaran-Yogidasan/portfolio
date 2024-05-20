@@ -33,7 +33,6 @@ const App = () => {
             <Navbar />
             <Suspense fallback={""}>
               <Routes>
-                <Route />
                 <Route path="/portfolio" element={<Layout />} />
                 <Route path="/home" element={<Landing />} />
                 <Route path="/about" element={<AboutMe />} />
