@@ -1,561 +1,78 @@
-import React from "react";
-import html5 from "../../images/html5.png";
-import css from "../../images/css.png";
-import javascript from "../../images/javascript.png";
-import react from "../../images/react.png";
-import redux from "../../images/redux.png";
-import materialUi from "../../images/materialUi.png";
-import tailwindCss from "../../images/tailwindCss.png";
-import bootstrap from "../../images/bootstrap.png";
-import figma from "../../images/figma.png";
-import cypress from "../../images/cypress.png";
-import aws from "../../images/aws.png";
-import git from "../../images/git.png";
 import { motion } from "framer-motion";
+import SkillCard from "./SkillCard";
+import { skillData } from "../../data/skillData";
+import { useRef } from "react";
 
 const Skill = () => {
+  const ref = useRef();
+
+  const parentVariants = {
+    initial: {
+      y: 500,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const childVariants = {
+    initial: {
+      scale: 0,
+      opacity: 0,
+    },
+    animate: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
   return (
     <>
-      <section className="w-full py-12 sm:py-16 lg:py-20 xl:py-10 bg-background-light dark:bg-background-dark">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          {/* <!-- Team --> */}
-          {/* <!-- Title --> */}
-          <h2 className="mt-6 text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl lg:text-5xl">
-            Skills
-          </h2>
-          {/* <!-- End Title --> */}
-
-          {/* <!-- Grid --> */}
-          <div className=" mt-12  grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12">
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30 lg:size-30 mx-auto"
+    <div className="pt-20 px-6 md:px-20 items-center justify-center bg-background-light dark:bg-background-dark">
+      <div className="flex flex-col gap-20 md:flex-row items-center ">
+        <motion.div
+          className="w-full md:w-2/2"
+          ref={ref}
+          variants={parentVariants}
+          initial="initial"
+          whileInView="animate"
+        >
+          <motion.h2
+            variants={childVariants}
+            initial={{ opacity: 0, y: -30, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            transition={{
+              ease: "easeInOut",
+              duration: 0.9,
+              delay: 0.1,
+            }}
+            className="text-center text-3xl font-bold text-black dark:text-white sm:text-2xl md:text-5xl lg:text-6xl"
+          >
+            {skillData.title}
+          </motion.h2>
+          <motion.div variants={childVariants} className="child-element">
+            <ul className="mx-auto mt-10 grid grid-cols-2 gap-10 lg:mt-20 lg:grid-cols-7">
+              {skillData.skill.map((skill) => (
+                <SkillCard
+                  key={skill.id}
+                  id={skill.id}
+                  imageUrl={skill.imageUrl}
+                  imageTitle={skill.imageTitle}
                 />
-              </motion.button>
-            </div>
-            {/* <!-- End Col --> */}
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={css}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={javascript}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={react}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={redux}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={materialUi}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={tailwindCss}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={bootstrap}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={figma}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={cypress}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={aws}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={git}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            <div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div><div className="h-36 sm:h-56 flex flex-col justify-center border border-gray-200 rounded-xl text-center p-4 md:p-5 dark:border-neutral-700">
-              <motion.button
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-              >
-                <img
-                  src={html5}
-                  alt="Html"
-                  loading="lazy"
-                  className="rounded-xl sm:size-30lg:size-30 mx-auto"
-                />
-              </motion.button>
-            </div>
-            {/* <!-- End Col --> */}
-          </div>
-          {/* <!-- End Grid --> */}
-          {/* <!-- End Team --> */}
-        </div>
-      </section>
+              ))}
+            </ul>
+          </motion.div>
+        </motion.div>
+      </div>
+    </div>
     </>
   );
 };

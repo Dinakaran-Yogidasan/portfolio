@@ -1,47 +1,106 @@
-import webPage from "../../assets/images/webPage.jpg";
 import ExperienceCard from "./ExperienceCard";
 import { motion } from "framer-motion";
-import {experienceData} from "../../data/experienceData"
+import { experienceData } from "../../data/experienceData";
+import { useRef } from "react";
 
 const Experience = () => {
+  const ref = useRef();
+
+  const parentVariants = {
+    initial: {
+      y: 500,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const childVariants = {
+    initial: {
+      scale: 0,
+      opacity: 0,
+    },
+    animate: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.3,
+      },
+    },
+  };
   return (
-    <section className="w-full py-12 sm:py-16 lg:py-20 xl:py-10 bg-background-light dark:bg-background-dark">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center mt-6 text-3xl font-bold tracking-tight text-black dark:text-white sm:text-4xl lg:text-5xl">
-          Experience
-        </h2>
-        {/* Section title */}
+    <>
+      <div className="flex pt-20 px-6 md:px-20 items-center justify-center bg-hero overflow-hidden bg-background-light dark:bg-background-dark">
+        <div className="flex flex-col gap-20 md:flex-row items-center max-w-8xl">
+          <motion.div
+            className="w-full md:w-2/2"
+            ref={ref}
+            variants={parentVariants}
+            initial="initial"
+            whileInView="animate"
+          >
+            <motion.h2
+              initial={{ opacity: 0, y: -30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                ease: "easeInOut",
+                duration: 0.9,
+                delay: 0.1,
+              }}
+              className="text-center text-3xl font-bold text-black dark:text-white sm:text-2xl md:text-5xl lg:text-6xl"
+            >
+              {experienceData.title}
+            </motion.h2>
+            {/* Grid */}
+            <div className="lg:grid lg:grid-cols-10 lg:gap-12 lg:items-center">
+              {/* Left side - Image */}
+              <div className="lg:col-span-5">
+                <motion.img
+                  src="https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/experienceDark"
+                  alt="Mysterious Wizard Light"
+                  className="object-cover w-full h-full dark:hidden"
+                  whileHover={{ scale: 1.05, rotate: 2 }}
+                />
+                <motion.img
+                  src="https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/experienceMe"
+                  alt="Mysterious Wizard Dark"
+                  className="object-cover w-full h-full hidden dark:block"
+                  whileHover={{ scale: 1.05, rotate: -2 }}
+                />
+              </div>
 
-        {/* Container for the grid */}
-        <div className="lg:grid lg:grid-cols-12 lg:gap-12 lg:items-center lg:mt-20">
-          {/* Left side - Image */}
-          <div className="lg:col-span-7">
-            <motion.img
-              // Animation properties for the image
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              src={webPage}
-              alt="Experience section image"
-              className="w-full shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20"
-            />
-          </div>
-
-          {/* Right side - Experience cards */}
-          <div className="lg:col-span-5 mt-8 lg:mt-0 grid gap-4">
-            {experienceData.map((exp) => (
-              <ExperienceCard
-                key={exp.id}
-                company={exp.company}
-                jobtitle={exp.jobtitle}
-                startYear={exp.startYear}
-                endYear={exp.endYear}
-              />
-            ))}
-          </div>
+              {/* Right side - Experience cards */}
+              <div className="lg:col-span-5 mt-8 lg:mt-0 grid gap-4">
+                {experienceData.experience.map((exp, index) => (
+                  <motion.div
+                    key={exp.id}
+                    variants={childVariants}
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                  >
+                    <ExperienceCard
+                      key={exp.id}
+                      company={exp.company}
+                      jobtitle={exp.jobtitle}
+                      startYear={exp.startYear}
+                      endYear={exp.endYear}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+            {/* End Grid */}
+          </motion.div>
         </div>
       </div>
-    </section>
+    </>
   );
 };
 

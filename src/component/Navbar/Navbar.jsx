@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "./../../images/logo.png";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { IoClose, IoMenu } from "react-icons/io5";
 import { motion, useScroll } from "framer-motion";
 import { links } from "../../data/links";
-import useThemeSwitcher from "../../hooks/useThemeSwitcher";
+import useThemeSwitcher from "../../utils/useThemeSwitcher";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -35,13 +34,13 @@ const Navbar = () => {
         style={{ position: "fixed" }}
       >
         <nav
-          className="relative max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8"
+          className="relative  w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8"
           aria-label="Global"
         >
           <div className="flex items-center justify-between">
-            <Link to="/portfolio">
+            <Link to="/home">
               <img
-                src={logo}
+                src="https://res.cloudinary.com/dj4rnfnnz/image/upload/v1716811784/develoeprDanny.png"
                 alt="Logo"
                 style={{ width: "10rem" }}
                 loading="lazy"
@@ -68,7 +67,7 @@ const Navbar = () => {
             animate={navbarOpen ? "open" : "closed"}
             variants={menuVariants}
             transition={{ duration: 0.4 }}
-            className="hs-collapse absolute top-14 left-0 w-full sm:hidden"
+            className="hs-collapse absolute top-14 left-0 right-0 w-full sm:hidden"
             aria-labelledby="navbar-with-collapse-heading"
           >
             <div className="hs-collapse-content bg-background-light dark:bg-background-dark text-black p-4">
@@ -92,7 +91,6 @@ const Navbar = () => {
                 ))}
                 <motion.button
                   onClick={toggleTheme}
-                  whileHover={{ scale: 1.1 }}
                 >
                   {theme === "dark" ? (
                     <FaMoon size={16} color="#fff" />
@@ -124,7 +122,7 @@ const Navbar = () => {
                   >
                     <Link
                       to={`/${link.toLowerCase().replace(" ", "-")}`}
-                      className="font-medium text-black hover:text-primary-blue dark:text-white dark:hover:text-primary-blue"
+                      className="font-medium text-black hover:text-blue-600 dark:text-white dark:hover:text-blue-600"
                       onClick={closeNavbar}
                     >
                       {link}
@@ -144,7 +142,6 @@ const Navbar = () => {
               </ul>
             </div>
           </div>
-
           {/* Scroll Progress Bar */}
           <motion.div
             className="progress-bar"
