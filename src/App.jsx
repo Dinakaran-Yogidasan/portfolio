@@ -29,23 +29,21 @@ const App = () => {
         <Spinner />
       ) : (
         <AnimatePresence>
-          <div className=" bg-secondary-light dark:bg-primary-dark transition duration-300">
-            <ScrollToTop />
+          <ScrollToTop />
+          <Suspense fallback={""}>
             <Navbar />
-            <Suspense fallback={""}>
-              <Routes>
-                <Route path="/" element={<Layout />} />
-                <Route path="/home" element={<Layout />} />
-                <Route path="/about" element={<AboutMe />} />
-                <Route path="/skills" element={<Skills />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/experience" element={<Experience />} />
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
-            </Suspense>
+            <Routes>
+              <Route path="/" element={<Layout />} />
+              <Route path="/home" element={<Layout />} />
+              <Route path="/about" element={<AboutMe />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
             <Footer />
-            <BackToTop />
-          </div>
+          </Suspense>
+          <BackToTop />
         </AnimatePresence>
       )}
     </>
