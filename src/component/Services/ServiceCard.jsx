@@ -8,6 +8,7 @@ const ServiceCard = ({ serviceTitle, serviceImg }) => {
             className=" object-cover rounded-xl "
             src={serviceImg}
             alt="Image Description"
+            style={{maxWidth:"100%"}}
           />
         </div>
         <div className="my-6">

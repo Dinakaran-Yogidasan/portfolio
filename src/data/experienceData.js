@@ -19,8 +19,8 @@ export const experienceData = {
       id: 3,
       company: "Genpact India",
       jobtitle: "Technical Associate",
-      startYear: "October 2022",
-      endYear: "May 2023",
+      startYear: "October 2021",
+      endYear: "May 2022",
     },
   ],
 };

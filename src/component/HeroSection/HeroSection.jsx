@@ -165,12 +165,14 @@ const HeroSection = () => {
               alt="Mysterious Wizard Light"
               className="object-cover w-full h-full dark:hidden"
               whileHover={{ scale: 1.05, rotate: 2 }}
+              style={{maxWidth:"100%"}}
             />
             <motion.img
               src={heroData.imageBackgroundDark}
               alt="Mysterious Wizard Dark"
               className="object-cover w-full h-full hidden dark:block"
               whileHover={{ scale: 1.05, rotate: -2 }}
+              style={{maxWidth:"100%"}}
             />
           </motion.div>
         </motion.div>

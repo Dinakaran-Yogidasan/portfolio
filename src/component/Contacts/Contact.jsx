@@ -163,11 +163,13 @@ const Contact = () => {
                     src={contact.imageBackgroundLight}
                     alt="Mysterious Wizard Light"
                     className="object-cover w-full h-full dark:hidden"
+                    style={{maxWidth:"100%"}}
                   />
                   <motion.img
                     src={contact.imageBackgroundDark}
                     alt="Mysterious Wizard Dark"
                     className="object-cover w-full h-full hidden dark:block"
+                    style={{maxWidth:"100%"}}
                   />
                 </div>
                 {/* <!-- End Card --> */}

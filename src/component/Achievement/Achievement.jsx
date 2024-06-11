@@ -1,13 +1,18 @@
-import { useRef } from "react";
 import { motion } from "framer-motion";
+import { aboutMe } from "../../data/aboutMe";
+import { useRef } from "react";
 import { achievementData } from "../../data/achievementData";
 
-const Achievement = () => {
+const AboutMe = () => {
   const ref = useRef();
+  const itemVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   const parentVariants = {
     initial: {
-      y: 500,
+      y: 300,
       opacity: 0,
     },
     animate: {
@@ -33,71 +38,65 @@ const Achievement = () => {
       },
     },
   };
+
   return (
     <>
-      <div className="flex pt-20 px-6 md:px-20 items-center justify-center bg-hero  bg-background-light dark:bg-background-dark">
-        <div className="flex flex-col gap-20 md:flex-row items-center max-w-8xl">
-          {achievementData.achievements.map((data) => (
-            <motion.div
-              className="w-full md:w-2/2"
-              ref={ref}
-              variants={parentVariants}
-              initial="initial"
-              whileInView="animate"
-              key={data.id}
+      <div
+        className=" pt-20 px-6 lg:px-20 items-center justify-center bg-background-light dark:bg-background-dark"
+        key={aboutMe.id}
+        id="about"
+      >
+        <motion.h1
+          variants={childVariants}
+          transition={{ duration: 0.9, delay: 0.1 }}
+          className="text-center text-3xl font-bold text-black dark:text-white sm:text-2xl md:text-5xl lg:text-6xl"
+          whileHover={{ scale: 1.05 }}
+        >
+         {achievementData.title}
+        </motion.h1>
+        <motion.div
+          className="flex flex-col lg:gap-20 md:flex-row items-center "
+          ref={ref}
+          variants={parentVariants}
+          initial="initial"
+          animate="visible"
+          whileInView="animate"
+        >
+          <motion.div className="w-full md:w-1/2">
+            <motion.p
+              variants={itemVariants}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="text-black dark:text-white font-bold  text-md lg:text-2xl text-center text-gray-700 font-light tracking-wider leading-relaxed"
+              whileHover={{ scale: 1.05 }}
             >
-              <motion.h2
-                initial={{ opacity: 0, y: -30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  ease: "easeInOut",
-                  duration: 0.9,
-                  delay: 0.1,
-                }}
-                className="mb-10 text-center text-3xl font-bold text-black dark:text-white sm:text-2xl md:text-5xl lg:text-6xl"
-              >
-                {achievementData.title}
-              </motion.h2>
-              {/* <!-- Grid --> */}
-              <div className="lg:grid lg:grid-cols-6 lg:gap-8 lg:items-center">
-                <motion.div
-                  // variants={parentVariants}
-                  initial="initial"
-                  whileInView="animate"
-                  className=" lg:block lg:col-span-2 "
-                >
-                  <img
-                    className="rounded-xl"
-                    src={data.image}
-                    alt={data.imageAlt}
-                  />
-                </motion.div>
-                {/* <!-- End Col --> */}
-                <div className="lg:col-span-4">
-                  {/* <!-- Blockquote --> */}
-                  <motion.blockquote
-                    initial="initial"
-                    whileInView="animate"
-                    variants={childVariants}
-                  >
-                    <p className="text-xl font-small text-gray-800 lg:text-2xl lg:leading-normal dark:text-neutral-200">
-                      {data.title}
-                    </p>
-                    <p className="text-md font-medium text-gray-800 lg:text-1xl lg:leading-normal dark:text-neutral-200">
-                      {data.details}
-                    </p>
-                  </motion.blockquote>
-                  {/* <!-- End Blockquote --> */}
-                </div>
-                {/* <!-- End Col --> */}
-              </div>
-              {/* <!-- End Grid --> */}
-            </motion.div>
-          ))}
-        </div>
+               {achievementData.certificateTitle} <br />
+               {achievementData.details}
+            </motion.p>
+          </motion.div>
+          <motion.div
+            variants={childVariants}
+            className="w-full md:w-1/2 flex justify-center md:justify-end"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.img
+              src={achievementData.image}
+              className="object-cover w-full h-full pt-10"
+              alt={achievementData.imageAlt}
+              initial={{ opacity: 10 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1.2 }}
+              style={{maxWidth:"70%"}}
+            />
+            
+          </motion.div>
+        </motion.div>
       </div>
     </>
   );
 };
 
-export default Achievement;
+export default AboutMe;

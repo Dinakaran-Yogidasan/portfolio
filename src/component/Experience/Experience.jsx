@@ -72,12 +72,14 @@ const Experience = () => {
                   alt="Mysterious Wizard Light"
                   className="object-cover w-full h-full dark:hidden"
                   whileHover={{ scale: 1.05, rotate: 2 }}
+                  style={{maxWidth:"100%"}}
                 />
                 <motion.img
                   src={experienceLight}
                   alt="Mysterious Wizard Dark"
                   className="object-cover w-full h-full hidden dark:block"
                   whileHover={{ scale: 1.05, rotate: -2 }}
+                  style={{maxWidth:"100%"}}
                 />
               </div>
 

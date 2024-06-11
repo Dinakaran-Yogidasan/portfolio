@@ -12,6 +12,7 @@ const SkillCard = ({ id, imageTitle, imageUrl }) => {
             src={imageUrl}
             alt={imageTitle}
             className="object-contain w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32"
+            style={{maxWidth:"100%"}}
           />
         </div>
         <div className=" text-black dark:text-white  text-sm sm:text-base md:text-lg font-medium">

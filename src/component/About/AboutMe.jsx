@@ -87,6 +87,7 @@ const AboutMe = () => {
               initial={{ opacity: 10 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2 }}
+              style={{maxWidth:"100%"}}
             />
             <motion.img
               src={aboutMe.imageDark}
@@ -95,6 +96,7 @@ const AboutMe = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2 }}
+              style={{maxWidth:"100%"}}
             />
           </motion.div>
         </motion.div>

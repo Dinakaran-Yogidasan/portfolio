@@ -9,7 +9,7 @@ const ProjectCards = ({ id, projectImage, projectTitle, projectDetails }) => {
         id={id}
       >
         <div className="p-4 md:p-6">
-          <img src={projectImage} alt={projectTitle} />
+          <img src={projectImage} alt={projectTitle}   style={{maxWidth:"100%"}} />
           <h3 className="block  mt-2 text-xl font-semibold uppercase text-blue-600 dark:text-blue-500">
             {projectTitle}
           </h3>
