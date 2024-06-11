@@ -6,7 +6,6 @@ import Navbar from "./component/Navbar/Navbar";
 import Footer from "./component/Footer/Footer";
 import BackToTop from "./component/BackToTop/BackToTop";
 import Spinner from "./utils/Spinner";
-import { Seo } from "./utils/Seo";
 
 const Layout = lazy(() => import("./component/Layouts/Layout"));
 const Projects = lazy(() => import("./component/Projects/Project"));
@@ -26,37 +25,29 @@ const App = () => {
 
   return (
     <>
-      <Seo
-        title="Dinakaran Yogidasan | Portfolio"
-        description="Use Developer Portfolio and create your own personalised portfolio today"
-        type="webapp"
-        name="Dinakaran Yogidasan"
-        url={"https://dinakaran.netlify.app/"}
-      >
-        {loading ? (
-          <Spinner />
-        ) : (
-          <AnimatePresence>
-            <div className=" bg-secondary-light dark:bg-primary-dark transition duration-300">
-              <ScrollToTop />
-              <Suspense fallback={""}>
-                <Navbar />
-                <Routes>
-                  <Route path="/" element={<Layout />} />
-                  <Route path="/home" element={<Layout />} />
-                  <Route path="/about" element={<AboutMe />} />
-                  <Route path="/skills" element={<Skills />} />
-                  <Route path="/projects" element={<Projects />} />
-                  <Route path="/experience" element={<Experience />} />
-                  <Route path="/contact" element={<Contact />} />
-                </Routes>
-                <Footer />
-              </Suspense>
-              <BackToTop />
-            </div>
-          </AnimatePresence>
-        )}
-      </Seo>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <AnimatePresence>
+          <div className=" bg-secondary-light dark:bg-primary-dark transition duration-300">
+            <ScrollToTop />
+            <Suspense fallback={""}>
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Layout />} />
+                <Route path="/home" element={<Layout />} />
+                <Route path="/about" element={<AboutMe />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/contact" element={<Contact />} />
+              </Routes>
+              <Footer />
+            </Suspense>
+            <BackToTop />
+          </div>
+        </AnimatePresence>
+      )}
     </>
   );
 };
