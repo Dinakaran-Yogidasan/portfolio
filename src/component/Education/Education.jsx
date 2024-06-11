@@ -7,7 +7,7 @@ const Education = () => {
 
   const parentVariants = {
     initial: {
-      y: 500,
+      y: 300,
       opacity: 0,
     },
     animate: {
@@ -35,7 +35,7 @@ const Education = () => {
   };
   return (
     <>
-      <div className="pt-20 px-6 md:px-20 items-center justify-center bg-background-light dark:bg-background-dark">
+      <div className="pt-20 px-6 md:px-20 items-center justify-center bg-background-light dark:bg-background-dark" id="education">
         <div className="flex flex-col gap-20 md:flex-row items-center">
           <motion.div
             className="w-full md:w-2/2"

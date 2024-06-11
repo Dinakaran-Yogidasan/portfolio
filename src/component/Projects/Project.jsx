@@ -26,7 +26,7 @@ const Project = () => {
   });
   const parentVariants = {
     initial: {
-      y: 500,
+      y: 300,
       opacity: 0,
     },
     animate: {

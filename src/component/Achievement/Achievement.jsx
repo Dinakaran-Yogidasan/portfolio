@@ -64,7 +64,7 @@ const Achievement = () => {
                   // variants={parentVariants}
                   initial="initial"
                   whileInView="animate"
-                  className="hidden lg:block lg:col-span-2 "
+                  className=" lg:block lg:col-span-2 "
                 >
                   <img
                     className="rounded-xl"

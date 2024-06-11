@@ -1,88 +1,89 @@
+import aws from "../assets/images/aws.png";
+import bootstrap from "../assets/images/bootstrap.png";
+import html5 from "../assets/images/html5.png";
+import css from "../assets/images/css.png";
+import javascript from "../assets/images/javascript.png";
+import react from "../assets/images/react.png";
+import redux from "../assets/images/redux.png";
+import materialUi from "../assets/images/materialUi.png";
+import tailwindCss from "../assets/images/tailwindCss.png";
+import figma from "../assets/images/tailwindCss.png";
+import cypress from "../assets/images/cypress.png";
+import git from "../assets/images/git.png";
+import aem from "../assets/images/aem.png";
+import mySql from "../assets/images/mySql.png";
+
 export const skillData = {
   title: "Skills",
   skill: [
     {
       id: 1,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/html5",
+      imageUrl: html5,
       imageTitle: "HTML5",
     },
     {
       id: 2,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/css",
+      imageUrl: css,
       imageTitle: "CSS",
     },
     {
       id: 3,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/javaScript",
+      imageUrl: javascript,
       imageTitle: "JavaScript",
     },
     {
       id: 4,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/reactJS",
+      imageUrl: react,
       imageTitle: "ReactJS",
     },
     {
       id: 5,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/redux",
+      imageUrl: redux,
       imageTitle: "Redux",
     },
     {
       id: 6,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/materialUi",
+      imageUrl: materialUi,
       imageTitle: "MaterialUi",
     },
     {
       id: 7,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/tailwindCss",
+      imageUrl: tailwindCss,
       imageTitle: "TailwindCss",
     },
     {
       id: 8,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/bootstrap",
+      imageUrl: bootstrap,
       imageTitle: " Bootstrap",
     },
     {
       id: 9,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/figma",
+      imageUrl: figma,
       imageTitle: "Figma",
     },
     {
       id: 10,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/cypress",
+      imageUrl: cypress,
       imageTitle: "Cypress",
     },
     {
       id: 11,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/aws",
+      imageUrl: aws,
       imageTitle: "AWS",
     },
     {
       id: 12,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/git",
+      imageUrl: git,
       imageTitle: "Git",
     },
     {
       id: 13,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/aem",
+      imageUrl: aem,
       imageTitle: "AEM",
     },
     {
       id: 14,
-      imageUrl:
-        "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/mySql",
+      imageUrl: mySql,
       imageTitle: "MySql",
     },
   ],

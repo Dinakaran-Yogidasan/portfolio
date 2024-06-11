@@ -2,13 +2,19 @@ import ExperienceCard from "./ExperienceCard";
 import { motion } from "framer-motion";
 import { experienceData } from "../../data/experienceData";
 import { useRef } from "react";
+import experienceLight from "../../assets/images/experienceLight.png";
+import experienceDark from "../../assets/images/experienceDark.png";
+
+
+
+// experienceLight
 
 const Experience = () => {
   const ref = useRef();
 
   const parentVariants = {
     initial: {
-      y: 500,
+      y: 300,
       opacity: 0,
     },
     animate: {
@@ -36,7 +42,7 @@ const Experience = () => {
   };
   return (
     <>
-      <div className="flex pt-20 px-6 md:px-20 items-center justify-center bg-hero overflow-hidden bg-background-light dark:bg-background-dark">
+      <div className=" pt-20 px-6 md:px-20 items-center justify-center bg-hero overflow-hidden bg-background-light dark:bg-background-dark">
         <div className="flex flex-col gap-20 md:flex-row items-center max-w-8xl">
           <motion.div
             className="w-full md:w-2/2"
@@ -62,13 +68,13 @@ const Experience = () => {
               {/* Left side - Image */}
               <div className="lg:col-span-5">
                 <motion.img
-                  src="https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/experienceDark"
+                  src={experienceDark}
                   alt="Mysterious Wizard Light"
                   className="object-cover w-full h-full dark:hidden"
                   whileHover={{ scale: 1.05, rotate: 2 }}
                 />
                 <motion.img
-                  src="https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/experienceMe"
+                  src={experienceLight}
                   alt="Mysterious Wizard Dark"
                   className="object-cover w-full h-full hidden dark:block"
                   whileHover={{ scale: 1.05, rotate: -2 }}

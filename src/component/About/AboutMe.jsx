@@ -11,7 +11,7 @@ const AboutMe = () => {
 
   const parentVariants = {
     initial: {
-      y: 500,
+      y: 300,
       opacity: 0,
     },
     animate: {
@@ -74,7 +74,7 @@ const AboutMe = () => {
             </motion.p>
           </motion.div>
           <motion.div
-           variants={childVariants}
+            variants={childVariants}
             className="w-full md:w-1/2 flex justify-center md:justify-end"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
@@ -84,7 +84,7 @@ const AboutMe = () => {
               src={aboutMe.imageLight}
               className="object-cover w-full h-full dark:hidden"
               alt={aboutMe.imageContent}
-              initial={{ opacity: 0 }}
+              initial={{ opacity: 10 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1.2 }}
             />

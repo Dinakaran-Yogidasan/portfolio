@@ -5,6 +5,8 @@ import { IoClose, IoMenu } from "react-icons/io5";
 import { motion, useScroll } from "framer-motion";
 import { links } from "../../data/links";
 import useThemeSwitcher from "../../utils/useThemeSwitcher";
+import logo from "../../assets/images/logo.svg";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
@@ -32,6 +34,7 @@ const Navbar = () => {
       <header
         className="sticky top-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full text-sm py-3 sm:py-0 bg-background-light dark:bg-background-dark  border  dark:border-gray-700"
         style={{ position: "fixed" }}
+        id="navabr"
       >
         <nav
           className="relative  w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8"
@@ -40,16 +43,33 @@ const Navbar = () => {
           <div className="flex items-center justify-between">
             <Link to="/">
               <img
-                src="https://res.cloudinary.com/dj4rnfnnz/image/upload/v1716811784/develoeprDanny.png"
+                // src="https://res.cloudinary.com/dj4rnfnnz/image/upload/v1716811784/develoeprDanny.png"
+                src={logo}
                 alt="Logo"
                 style={{ width: "10rem" }}
-                loading="lazy"
+                loading="lazy"  
               />
             </Link>
-            <div className="sm:hidden">
+            <div
+              // onClick={() => setTheme(activeTheme)}
+              onClick={toggleTheme}
+              aria-label="Theme Switcher"
+              className="block sm:hidden ml-0 bg-primary-light dark:bg-ternary-dark p-3 shadow-sm rounded-xl cursor-pointer border  dark:border-gray-700"
+            >
+              {theme === "dark" ? (
+                <FiMoon className="text-ternary-dark hover:text-gray-400 dark:text-ternary-light dark:hover:text-primary-light text-xl" />
+              ) : (
+                <FiSun
+                  color="#000"
+                  className="text-gray-200 hover:text-gray-50 text-xl "
+                />
+              )}
+            </div>
+
+            <div className="sm:hidden ">
               <motion.button
                 type="button"
-                className="hs-collapse-toggle size-9 flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-black/30 dark:text-white dark:border-white/30"
+                className="hs-collapse-toggle size-9  flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-black/30 dark:text-white dark:border-white/30"
                 aria-label="Toggle navigation"
                 onClick={navbarOpen ? closeNavbar : openNavbar}
                 initial="initial"
@@ -89,15 +109,7 @@ const Navbar = () => {
                     </Link>
                   </motion.li>
                 ))}
-                <motion.button
-                  onClick={toggleTheme}
-                >
-                  {theme === "dark" ? (
-                    <FaMoon size={16} color="#fff" />
-                  ) : (
-                    <FaSun size={16} color="#000" />
-                  )}
-                </motion.button>
+               
               </ul>
             </div>
           </motion.div>

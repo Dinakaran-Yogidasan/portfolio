@@ -7,37 +7,42 @@ import RotatingJobTitle from "../../utils/RotatingJobTitle";
 
 const HeroSection = () => {
   const containerVariants = {
-    hidden: { opacity: 0, x: -50 },
+    hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
-        duration: 0.8,
+        duration: 1,
         when: "beforeChildren",
-        staggerChildren: 0.3,
+        staggerChildren: 0.4,
       },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: -10 },
-    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const buttonVariants = {
+    hover: { scale: 1.1, boxShadow: "0px 0px 8px rgb(0,0,0,0.5)" },
+    tap: { scale: 0.95 },
   };
 
   return (
     <>
       <div
-        className="flex pt-20 px-6 lg:px-20 items-center justify-center overflow-hidden bg-background-light dark:bg-background-dark"
+        className=" pt-20 px-6 lg:px-20 items-center justify-center bg-background-light dark:bg-background-dark"
         key={heroData.id}
         id="hero"
       >
         <motion.div
-          className="flex flex-col lg:gap-20 md:flex-row items-center "
+          className="flex flex-col lg:gap-20 md:flex-row items-center  bg-background-light dark:bg-background-dark "
           variants={containerVariants}
           initial="hidden"
           animate="visible"
         >
-          <motion.div className="w-full md:w-1/2">
+          <motion.div className="w-full md:w-1/2 pt-5">
             <motion.h1
               variants={itemVariants}
               transition={{ duration: 0.9, delay: 0.1 }}
@@ -58,17 +63,20 @@ const HeroSection = () => {
               variants={itemVariants}
               transition={{ duration: 1, delay: 0.4 }}
               className="text-black dark:text-white font-bold mt-6 md:mt-10 text-md lg:text-2xl text-center text-gray-700 font-light tracking-wider leading-relaxed"
-              whileHover={{ scale: 1.05 }}
             >
               {heroData.about}
             </motion.p>
 
-            <div className="font-bold mt-6 flex flex-col sm:flex-row justify-center md:justify-center">
+            <motion.div
+              className="font-bold  flex flex-col sm:flex-row justify-center md:justify-center"
+              variants={itemVariants}
+              transition={{ duration: 1, delay: 0.5 }}
+            >
               {heroData.resumePdf && (
                 <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  variants={itemVariants}
+                  whileHover="hover"
+                  whileTap="tap"
+                  variants={buttonVariants}
                   href={heroData.resumePdf}
                   download="Dinakaran-Resume.pdf"
                   target="_blank"
@@ -79,19 +87,29 @@ const HeroSection = () => {
                   <MdOutlineFileDownload size={25} />
                 </motion.a>
               )}
-            </div>
-            <h2 className="text-center mt-5 text-xl font-bold text-black dark:text-white">
+            </motion.div>
+
+            <motion.h2
+              className="text-center mt-5 text-xl font-bold text-black dark:text-white"
+              variants={itemVariants}
+              transition={{ duration: 1, delay: 0.6 }}
+            >
               CONNECT WITH ME
-            </h2>
-            <div className="flex justify-center space-x-5 mt-5">
+            </motion.h2>
+            <motion.div
+              className="flex justify-center space-x-5 m-5"
+              variants={itemVariants}
+              transition={{ duration: 1, delay: 0.7 }}
+            >
               {socialsData.gitHub && (
                 <motion.a
-                  className="animate-bounce focus:animate-none hover:animate-none border border-blue-300 relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-blue-600 before:via-transparent before:to-violet-600 before:rounded-xl dark:bg-neutral-900"
+                  className="border border-blue-300 relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-blue-600 before:via-transparent before:to-violet-600 before:rounded-xl dark:bg-neutral-900"
                   href={socialsData.gitHub}
                   target="_blank"
                   rel="noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover="hover"
+                  whileTap="tap"
+                  variants={buttonVariants}
                 >
                   <FiGithub
                     aria-label="GitHub"
@@ -102,12 +120,13 @@ const HeroSection = () => {
               )}
               {socialsData.mail && (
                 <motion.a
-                className="animate-bounce focus:animate-none hover:animate-none border border-blue-300 relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-blue-600 before:via-transparent before:to-violet-600 before:rounded-xl dark:bg-neutral-900"
-                href={`mailto:${socialsData.mail}`}
+                  className="border border-blue-300 relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-blue-600 before:via-transparent before:to-violet-600 before:rounded-xl dark:bg-neutral-900"
+                  href={`mailto:${socialsData.mail}`}
                   target="_blank"
                   rel="noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover="hover"
+                  whileTap="tap"
+                  variants={buttonVariants}
                 >
                   <FiMail
                     aria-label="Mail"
@@ -118,12 +137,13 @@ const HeroSection = () => {
               )}
               {socialsData.linkedin && (
                 <motion.a
-                className="animate-bounce focus:animate-none hover:animate-none border border-blue-300 relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-blue-600 before:via-transparent before:to-violet-600 before:rounded-xl dark:bg-neutral-900"
-                href={socialsData.linkedin}
+                  className="border border-blue-300 relative flex justify-center items-center size-12 bg-white rounded-xl before:absolute before:-inset-px before:-z-[1] before:bg-gradient-to-br before:from-blue-600 before:via-transparent before:to-violet-600 before:rounded-xl dark:bg-neutral-900"
+                  href={socialsData.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  whileHover="hover"
+                  whileTap="tap"
+                  variants={buttonVariants}
                 >
                   <FiLinkedin
                     aria-label="Linkedin"
@@ -132,13 +152,13 @@ const HeroSection = () => {
                   />
                 </motion.a>
               )}
-            </div>
+            </motion.div>
           </motion.div>
           <motion.div
-            className="w-full md:w-1/2 flex justify-center md:justify-end"
+            className="w-full md:w-1/2 flex justify-center md:justify-end mt-10"
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 1 }}
           >
             <motion.img
               src={heroData.imageBackgroundLight}

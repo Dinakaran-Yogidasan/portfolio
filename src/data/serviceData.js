@@ -1,26 +1,27 @@
+import webDevelopement from "../assets/images/webDevelopement.jpg";
+import softwareDevelopement from "../assets/images/softwareDevelopement.jpg";
+import ui from "../assets/images/ui.jpg";
+import aboutMe from "../assets/images/aboutMe.png";
+
 export const serviceData = [
   {
     id: 1,
     serviceTitle: "Web Developement",
-    serviceImg:
-      "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/webDevelopement",
+    serviceImg: webDevelopement,
   },
   {
     id: 2,
     serviceTitle: "Software Developement",
-    serviceImg:
-      "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/softwareDevelopement",
+    serviceImg: softwareDevelopement,
   },
   {
     id: 3,
     serviceTitle: "UI-UX Designing",
-    serviceImg:
-      "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/ui",
+    serviceImg: ui,
   },
   {
     id: 4,
     serviceTitle: "Software Engineer",
-    serviceImg:
-      "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/v1/skills/aboutMe",
+    serviceImg: aboutMe,
   },
 ];

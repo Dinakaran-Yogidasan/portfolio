@@ -27,5 +27,8 @@ export default {
       },
     },
   },
+  variants: {
+		extend: { opacity: ['disabled'] },
+	},
   plugins: [],
 };

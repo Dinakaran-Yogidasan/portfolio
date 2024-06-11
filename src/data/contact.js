@@ -1,7 +1,8 @@
+import contactLight from "../assets/images/contactLight.png";
+import contactDark from "../assets/images/contactDark.png";
+
 export const contact = {
   title: "Contact",
-  imageBackgroundLight:
-    "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/contactLight",
-  imageBackgroundDark:
-    "https://res.cloudinary.com/dj4rnfnnz/image/upload/f_auto,q_auto/contactDark",
+  imageBackgroundLight: contactLight,
+  imageBackgroundDark: contactDark,
 };
