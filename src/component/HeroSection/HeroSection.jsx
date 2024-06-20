@@ -78,7 +78,7 @@ const HeroSection = () => {
                   whileTap="tap"
                   variants={buttonVariants}
                   href={heroData.resumePdf}
-                  download="Dinakaran-Resume.pdf"
+                  download="Dinakaran-Yogidasan.pdf"
                   target="_blank"
                   rel="noreferrer"
                   className="inline-flex justify-center items-center gap-x-3 bg-blue-600 hover:bg-blue-700 border border-transparent text-sm lg:text-base mt-5 text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4 dark:focus:ring-offset-gray-800"
